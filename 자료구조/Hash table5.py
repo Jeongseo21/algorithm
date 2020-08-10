@@ -15,4 +15,7 @@ hash_object.update(str.encode()) #b'STRING'과 같음. 문자열을 바이트 �
 hex_dig = hash_object.hexdigest()
 print(hex_dig)
 
+#해시테이블은 충돌이 없다면, O(1)이다.
+#최악의 경우 모든 경우에 충돌이 발생한다면, O(n)이다.
 
+#일반적인 경우 해시테이블의 시간복잡도는 O(1)이다.

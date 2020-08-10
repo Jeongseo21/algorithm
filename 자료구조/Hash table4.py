@@ -1,10 +1,15 @@
 #Linear Probing 기법, 폐쇄해싱 또는 Close Hashing 기법 중 하나.
 #저장 공간 활용도가 높아짐
 
+import hashlib
+
 hash_table= list(0 for i in range(8))
 
 def data_key(data):
-    return hash(data)
+    hash_object = hashlib.sha256()
+    hash_object.update(data.encode())
+    hex_dig = hash_object.hexdigest()
+    return int(hex_dig, 16)
 
 def hash_function(key):
     return key % 8
