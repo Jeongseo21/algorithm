@@ -35,7 +35,25 @@ class NodeMgmt:
                 self.current_node = self.current_node.right
         return False
 
-head = Node(1)
+    def display(self):
+        self.current_node = self.head
+        self.parent = self.head
+        while self.current_node:
+            if self.current_node.left:
+                print(self.current_node.value)
+                self.current_node = self.current_node.left
+                if self.current_node.left == None:
+                    self.parent = self.current_node
+            else:
+                print(self.current_node.value)
+                self.current_node = self.parent
+                break
+                
+            
+
+
+
+head = Node(5)
 BST = NodeMgmt(head)
 BST.insert(2)
 BST.insert(3)
@@ -43,3 +61,4 @@ BST.insert(4)
 BST.insert(8)
 print(BST.search(3))
 print(BST.search(5))
+BST.display()
