@@ -94,14 +94,6 @@ def delete(self,value):
             self.parent.right = self.current_node.right
 
 
-
-
-
-
-
-
-
-
 head = Node(1)
 BT = NodeMgmt(head)
 BT.insert(2)
@@ -109,4 +101,18 @@ BT.insert(3)
 BT.insert(4)
 print(BT.search(2))
 print(BT.search(5))
+
+# 이진탐색트리의 시간복잡도와 단점
+
+# 이진탐색트리의 시간복잡도
+# depth(트리의 높이)를 h라고 하면, 시간복잡도는 O(h)이다.
+# 입력된 데이터의 개수가 1->3->7->15 로 증가함에 따라 시간복잡도는 1->2->3->4로 증가하고 이는 log(n)과 가깝다
+# 따라서 h = log(n) 이므로 시간복잡도는 O(log(n))이다.
+
+# 또는 한번 판단할 때 마다 절반 씩 탐색할 데이터가 없어지기 때문에 O(log(n))이라고 볼 수 있다.
+
+# 이진탐색트리의 단점
+# 평균 시간복잡도 O(log(n))은 이진트리가 균형잡혀 있을 때의 평균 시간복잡도이다.
+# 트리의 노드가 한 쪽으로만 치우쳐 있을 경우에는 최악의 경우 링크드리스트와 동일한 O(n)의 시간복잡도를 가질 수도 있다.
+
 

@@ -48,6 +48,7 @@ class NodeMgmt:
                 print(self.current_node.value)
                 self.current_node = self.parent
                 break
+            
                 
             
 
