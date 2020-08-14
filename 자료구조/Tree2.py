@@ -1,4 +1,4 @@
-#delete 설계
+# delete 설계
 
 # 1. leafNode를 삭제할 경우
 # leafNode : Child Node가 없는 Node
@@ -24,6 +24,7 @@ class Node:
         self.left = None
         self.right = None
 
+
 class NodeMgmt:
     def __init__(self, head):
         self.head = head
@@ -31,15 +32,15 @@ class NodeMgmt:
     def insert(self, value):
         self.current_node = self.head
         while True:
-            if value < self.current_node.value: #입력한 value가 head의 value보다 작으면
-                if self.current_node.left != None: #head node의 왼쪽자식이 있으면
-                    self.current_node = self.current_node.left #왼쪽자식으로 head node가 이동
+            if value < self.current_node.value:  # 입력한 value가 head의 value보다 작으면
+                if self.current_node.left != None:  # head node의 왼쪽자식이 있으면
+                    self.current_node = self.current_node.left  # 왼쪽자식으로 head node가 이동
                 else:
                     self.current_node.left = Node(value)
                     break
-            else: #입력한 value가 head의 value보다 크거나 같으면
-                if self.current_node.right != None: #head node의 오른쪽 자식이 있으면
-                    self.current_node = self.current_node.right #오른쪽 자식으로 head node가 이동
+            else:  # 입력한 value가 head의 value보다 크거나 같으면
+                if self.current_node.right != None:  # head node의 오른쪽 자식이 있으면
+                    self.current_node = self.current_node.right  # 오른쪽 자식으로 head node가 이동
                 else:
                     self.current_node.right = Node(value)
                     break
@@ -55,33 +56,34 @@ class NodeMgmt:
                 self.current_node = self.current_node.left
         return False
 
-def delete(self,value):
+
+def delete(self, value):
     searched = False
     self.current_node = self.head
     self.parent = self.head
     while self.current_node:
-        if self.current_node.value == value: #삭제할 node를 찾음
-            searched = True 
+        if self.current_node.value == value:  # 삭제할 node를 찾음
+            searched = True
             break
-        elif value < self.current_node.value: #현재 node를 parent_node로 바꾸고 left자식을 현재node로 변경
+        elif value < self.current_node.value:  # 현재 node를 parent_node로 바꾸고 left자식을 현재node로 변경
             self.parent = self.current_node
             self.current_node = self.current_node.left
-        else:                                  #현재 node를 parent_node로 바꾸고 right자식을 현재 node로 변경
+        else:  # 현재 node를 parent_node로 바꾸고 right자식을 현재 node로 변경
             self.parent = self.current_node
             self.current_node = self.current_node.right
     if searched == False:
         return False
-    
+
     # 이제 current_node는 삭제할 node를 가리키고 있고, parent_node는 그 부모 node를 가리키고 있음
-    
-    #1번 케이스 : 삭제할 Node가 leafNode일 경우
+
+    # 1번 케이스 : 삭제할 Node가 leafNode일 경우
     if self.current_node.left == None and self.current_node.right == None:
         if value < self.parent.value:
             self.parent.left == None
         else:
             self.parent.right == None
         del self.current_node
-    #2번 케이스
+    # 2번 케이스
     if self.current_node.left != None and self.current_node.right == None:
         if value < self.parent.value:
             self.parent.left = self.current_node.left
@@ -114,5 +116,3 @@ print(BT.search(5))
 # 이진탐색트리의 단점
 # 평균 시간복잡도 O(log(n))은 이진트리가 균형잡혀 있을 때의 평균 시간복잡도이다.
 # 트리의 노드가 한 쪽으로만 치우쳐 있을 경우에는 최악의 경우 링크드리스트와 동일한 O(n)의 시간복잡도를 가질 수도 있다.
-
-
