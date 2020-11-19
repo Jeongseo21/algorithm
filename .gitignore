@@ -9,6 +9,7 @@ __pycache__/
 *.png
 # Distribution / packaging
 .Python
+.idea
 build/
 develop-eggs/
 dist/
