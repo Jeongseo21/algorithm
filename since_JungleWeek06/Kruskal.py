@@ -38,5 +38,41 @@ for edge in edges:
 
         union_parent(parent, a, b)
         result += cost
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 print(result)
 
