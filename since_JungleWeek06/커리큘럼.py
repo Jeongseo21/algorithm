@@ -12,6 +12,7 @@ cost = [0]*(N+1)
 indegree = [0]*(N+1)
 done = []
 graph = [[] for _ in range(N+1)]
+visited = [False]*(N+1)
 
 flag = 0
 for i in range(1, N+1):
@@ -22,21 +23,25 @@ for i in range(1, N+1):
         graph[x].append(i)
 
 
-def pop_zero_indegree(indegree, waiting_queue):
-    for i in range(1, N+1):
-        if indegree[i] == 0:
-            waiting_queue.append(i)
-pop_zero_indegree(indegree, waiting_queue)
+
+for i in range(1, N+1):
+    if indegree[i] == 0 and not visited[i]:
+        waiting_queue.append(i)
+
 
 while waiting_queue:
     now = waiting_queue.pop()
+    visited[now] = True
     pointed = graph[now]
     for to in pointed:
         indegree[to] -= 1
         print(indegree)
     done.append(now)
-    pop_zero_indegree(indegree, waiting_queue)
+    for i in range(1, N + 1):
+        if indegree[i] == 0 and not visited[i]:
+            waiting_queue.append(i)
     print(waiting_queue)
+    print(done)
 
 
 
