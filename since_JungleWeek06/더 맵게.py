@@ -5,7 +5,7 @@ K = 7
 time = 0
 while True:
     if len(scoville) < 2:
-        if scoville[0] < K:
+        if scoville.pop() < K:
             print(-1)
         else:
             print(0)
