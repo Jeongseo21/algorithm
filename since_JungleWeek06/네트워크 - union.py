@@ -21,7 +21,7 @@ for i in range(n):
     parents[i] = i
 
 for i in range(n):
-    for j in range(i+1, n):
+    for j in range(n):
         if computers[i][j] == 1:
             union_parent(parents, i, j)
 

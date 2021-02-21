@@ -7,25 +7,16 @@ visited = [False for _ in range(n)]
 start = 0
 answer = 0
 
-def dfs(computers, visited, start):
-    ready = [start]
-    while ready:
-        now = ready.pop(0)
-        print(now)
-        print(ready)
-        if visited[now]:
-            continue
-        visited[now] = True
-        for i in range(n):
-            if computers[now][i] == 1 and visited[i]:
-                ready.append(i)
+def dfs(i):
+    visited[i] = True
+    for j in range(i+1, n):
+        if computers[i][j] == 1 and not visited[j]:
+            dfs(j)
 
-
-
-while False in visited:
-    if not visited[start]:
-        dfs(computers, visited, start)
-        answer += 1
-    start += 1
-print(answer)
+cnt = 0
+for i in range(n):
+    if not visited[i]:
+        dfs(i)
+        cnt += 1
+print(cnt)
 
