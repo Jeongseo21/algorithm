@@ -1,5 +1,5 @@
-number = "0123546210"
-k = 8
+number = "98765"
+k = 3
 
 nums = list(map(int, number))
 surviving = []
